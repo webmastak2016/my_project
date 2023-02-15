@@ -5,10 +5,67 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {background-color: #777}
+    </style>
 </head>
 <body>
     <p>111222</p>
 
     <script src="/js/script.js"></script>
+    <a href="https://t.me/vodolei_co" target="_blank"><img src="/banner/logo/tm_c.gif" width="100px"></a>
+    <a href="https://twitter.com/Aleksan79419779?t=qFbD031OhbPgzF8l7SKvWQ&s=09" target="_blank"><img src="/banner/logo/tw_c.gif" width="100px"></a>
+
+    <h3>День Войны:</h3>
+    <p id="timeLeft"></p>
+
+    <script>
+        const creationDateObj = {
+        year: 2010,
+        month: 2,
+        day: 29,
+        hours: 0,
+        minutes: 0,
+        seconds: 0
+      };
+      
+      const creationDate = new Date(
+        creationDateObj.year,
+        creationDateObj.month,
+        creationDateObj.day,
+        creationDateObj.hours,
+        creationDateObj.minutes,
+        creationDateObj.seconds
+      );
+      
+      const timeLeft = document.querySelector('#timeLeft');
+      
+      setInterval(() => {
+      
+        const now = new Date();
+        const diffInMS = now - creationDate;
+        const diffAsDate = new Date(diffInMS);
+      
+        const [
+          years,
+          months,
+          days,
+          hours,
+          minutes,
+          seconds
+        ] = diffAsDate
+            .toISOString()
+            .split('T')
+            .map(timePart => 
+              timePart
+                .split(/-|:|\./)
+                .map(str => +str)
+            )
+            .flat();
+      
+        timeLeft.textContent = `${years - 1970} лет ___ ${months - 1} месяца ___ ${days - 1} дней ___ ${hours} час ___ ${minutes} минут ___ ${seconds} секунд`;
+      
+      }, 1000);
+      </script>
 </body>
 </html>

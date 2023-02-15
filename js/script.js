@@ -42,3 +42,14 @@ const answer1 = prompt('Один из последних просмотренн�
  personalMovieDB.movies[answer3] = answer4;
 
  console.log(personalMovieDB );
+
+const storeName =  'My store';
+const storeDescription = {
+    budget: 10000,
+    employees: ['Denis', 'Lena', 'Stefan'],
+    products: {
+        Tea: 1,
+        Koffe: 2
+    },
+    open: true
+};
